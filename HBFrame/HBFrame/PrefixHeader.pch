@@ -1,0 +1,38 @@
+//
+//  PrefixHeader.pch
+//  HBFrame
+//
+//  Created by guahibo on 16/5/27.
+//  Copyright © 2016年 guahibo. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "UIBarButtonItem+Extension.h"
+#import "UIView+Extension.h"
+
+#define HBRGB(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define HBRandomColor HBRGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256)) //随机色
+
+#define RGBCOLOR_HEX(hexColor) [UIColor colorWithRed: (((hexColor >> 16) & 0xFF))/255.0f         \
+green: (((hexColor >> 8) & 0xFF))/255.0f          \
+blue: ((hexColor & 0xFF))/255.0f                 \
+alpha: 1]
+#define GRAYTEXTCOLOR RGBCOLOR_HEX(0x7b7b7b)
+#define ButtonNormalColor RGBCOLOR_HEX(0x67d2ca)
+
+#ifdef DEBUG // 处于开发阶段
+#define HBLog(...) NSLog(__VA_ARGS__)
+#else // 出去发布阶段
+#define HBLog(...)
+#endif
+
+#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+
+#endif /* PrefixHeader_pch */
